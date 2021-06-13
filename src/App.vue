@@ -1,28 +1,83 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-container class="grey lighten-5">
+      <v-row no-gutters v-for="word in guesses" :key="word">
+        <v-col
+          v-for="letter in word"
+          :key="letter"
+          class="pa-2"
+          :class="letter[1]"
+          outlined
+          tile
+          align="center"
+        >
+          {{ letter[1] }}
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { fiveCharWords, sixCharWords, sevenCharWords } from "./scripts/words";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  name: "App",
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {},
+
+  data: () => ({
+    fiveCharWords: fiveCharWords,
+    sixCharWords: sixCharWords,
+    sevenCharWords: sevenCharWords,
+    word: "",
+    methods: {
+      getWord: function () {
+        self.word = "words";
+      },
+    },
+    guesses: [
+      [
+        ["l", "red"],
+        ["e", "green"],
+        ["t", "red"],
+        ["t", "green"],
+        ["e", "red"],
+        ["r", "red"],
+      ],
+      [
+        ["l", "red"],
+        ["e", "green"],
+        ["t", "red"],
+        ["t", "green"],
+        ["e", "red"],
+        ["r", "red"],
+      ],
+      [
+        ["l", "red"],
+        ["e", "green"],
+        ["t", "red"],
+        ["t", "green"],
+        ["e", "red"],
+        ["r", "red"],
+      ],
+      [
+        ["l", "red"],
+        ["e", "green"],
+        ["t", "red"],
+        ["t", "green"],
+        ["e", "red"],
+        ["r", "red"],
+      ],
+      [
+        ["l", "red"],
+        ["e", "green"],
+        ["t", "red"],
+        ["t", "green"],
+        ["e", "red"],
+        ["r", "red"],
+      ],
+    ],
+  }),
+};
+</script>
